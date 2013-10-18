@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All posts</h2>
+
+<ul class="list-unstyled spaced">
+	{% for article in dates %}
+	<li>{{ article.locale_date }} - <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

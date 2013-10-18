@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="content">
+	{% block content_title %}
+	{% endblock %}
+
+	{% for article in articles_page.object_list %}
+		{% if loop.first %}
+		<article>
+			<h4 class="pull-right">{{ article.locale_date }}</h4>
+			<h2>{{ article.title }}</h2>
+			<hr />
+			<p>{{ article.summary }}</p>
+		</article>
+		<hr />
+		<ul class="list-unstyled spaced">
+		{% else %}
+			<li>
+				{{ article.locale_date }} - 
+				<a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+	{% include 'pagination.html' %}
+</section>
+<span class="clearfix"></span>
+{% endblock content %}

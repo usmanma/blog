@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+  {% for keyword in article.keywords %}
+    <meta name="keywords" contents="{{keyword}}" />
+  {% endfor %}
+
+  {% for description in article.description %}
+    <meta name="description" contents="{{description}}" />
+  {% endfor %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" contents="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section>
+	<h4 class="pull-right">{{ article.locale_date }}</h4>
+    <h2>{{ article.title }}</a></h2>
+    
+	<hr />
+    {{ article.content }}
+
+</section>
+{% endblock %}
