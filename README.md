@@ -1,4 +1,4 @@
 blog
 ====
 
-Pelican configuration files for blog including templates
+Personal blog as hosted at http://blog.particult.com
