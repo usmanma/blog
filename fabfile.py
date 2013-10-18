@@ -2,7 +2,11 @@ from fabric.api import *
 import fabric.contrib.project as project
 import os
 
+
 # Local path configuration (can be absolute or relative to fabfile)
+env.content_path = 'content'
+env.local_config = 'pelicanconf.py'
+env.publish_config = 'publishconf.py'
 env.deploy_path = 'output'
 DEPLOY_PATH = env.deploy_path
 
@@ -22,7 +26,7 @@ def clean():
         local('mkdir {deploy_path}'.format(**env))
 
 def build():
-    local('pelican -s pelicanconf.py')
+    local('pelican {content_path} -o {deploy_path} -s {local_config}'.format(**env))
 
 def rebuild():
     clean()
@@ -39,7 +43,7 @@ def reserve():
     serve()
 
 def preview():
-    local('pelican -s publishconf.py')
+    local('pelican {content_path} -o {deploy_path} -s {publish_config}'.format(**env))
 
 def cf_upload():
     rebuild()
@@ -51,7 +55,7 @@ def cf_upload():
 
 @hosts(production)
 def publish():
-    local('pelican -s publishconf.py')
+    local('pelican {content_path} -o {deploy_path} -s {publish_config}'.format(**env))
     project.rsync_project(
         remote_dir=dest_path,
         exclude=".DS_Store",
