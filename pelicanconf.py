@@ -33,7 +33,7 @@ THEME = 'themes/asterias'
 TIMEZONE = 'Europe/London'
 TYPOGRIFY = True
 
-# WITH_FUTURE_DATES = False
+WITH_FUTURE_DATES = False
 
 PYGMENTS_RST_OPTIONS = {
     'linenos': 'table',

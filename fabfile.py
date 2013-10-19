@@ -58,7 +58,7 @@ def publish():
     local('pelican {content_path} -o {deploy_path} -s {publish_config}'.format(**env))
     project.rsync_project(
         remote_dir=dest_path,
-        exclude=".DS_Store",
+        exclude=[".DS_Store","drafts"],
         local_dir=DEPLOY_PATH.rstrip('/') + '/',
         delete=True
     )
