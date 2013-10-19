@@ -24,14 +24,14 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 
 PLUGIN_PATH = 'pelican_plugins'
-PLUGINS = ['assets',]
+PLUGINS = ['assets','bootstrap_icons']
 
 SUMMARY_MAX_LENGTH = None
 
 THEME = 'themes/asterias'
 
 TIMEZONE = 'Europe/London'
-TYPOGRIFY = True
+# TYPOGRIFY = True
 
 WITH_FUTURE_DATES = False
 
