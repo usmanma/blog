@@ -14,12 +14,11 @@ Bootstrap
 	`Bootstrap`_ is a front-end framework that makes design easy even for developers.
 
 Theme: Asterias
-	The theme for pages is a custom theme made on top of simple, and happens to be what
-	you are currently looking at The name asterias is simply the code name for this blog
-	project and hence it is named after that. The theme needs a lot of work still but
-	currently its purpose is to serve as a book style site. Due to this limited
-	requirement, it does not make full use of articles, categories or tags that Pelican
-	provides.
+	The theme is custom made on top of simple, and happens to be what you are currently
+	looking at. The name asterias is simply the code name for this blog project and hence
+	it is named after that. The theme needs a lot of work still but currently its purpose
+	is to serve as a book style site. Due to this limited requirement, it does not make
+	full use of articles, categories or tags that Pelican provides.
 
 Bootstrap Icon Plugin
 	This is a custom plugin to make it easier to include bootstrap icons with in
