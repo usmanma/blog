@@ -2,39 +2,41 @@
 <html lang="{{ DEFAULT_LANG }}">
 <head>
 {% block head %}
-    <meta charset="utf-8" />
-    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% assets filters="cssmin", output="css/min.css", "css/bootstrap.css", "css/pygment.css", "css/theme.css" %}
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
-    {% endassets %}
-    {% if FEED_ALL_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
-    {% endif %}
-    {% if FEED_ALL_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
-    {% endif %}
-    {% if FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
-    {% endif %}
-    {% if FEED_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
-    {% endif %}
-    {% if CATEGORY_FEED_ATOM and category %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
-    {% endif %}
-    {% if CATEGORY_FEED_RSS and category %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
-    {% endif %}
-    {% if TAG_FEED_ATOM and tag %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
-    {% endif %}
-    {% if TAG_FEED_RSS and tag %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
-    {% endif %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+
+	{% assets filters="cssmin", output="css/min.css", "css/bootstrap.css", "css/pygment.css", "css/theme.css" %}
+		<link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
+	{% endassets %}
+
+	{% if FEED_ALL_ATOM %}
+		<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+	{% endif %}
+	{% if FEED_ALL_RSS %}
+		<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+	{% endif %}
+	{% if FEED_ATOM %}
+		<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+	{% endif %}
+	{% if FEED_RSS %}
+		<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+	{% endif %}
+	{% if CATEGORY_FEED_ATOM and category %}
+		<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+	{% endif %}
+	{% if CATEGORY_FEED_RSS and category %}
+		<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+	{% endif %}
+	{% if TAG_FEED_ATOM and tag %}
+		<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+	{% endif %}
+	{% if TAG_FEED_RSS and tag %}
+		<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+	{% endif %}
 {% endblock head %}
 </head>
-
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -68,33 +70,34 @@
 			</ul>
 			{% if DEFAULT_PAGINATION and articles_page %}
 			<ul class="nav navbar-nav pull-right">
-			    {% if articles_page.has_previous() %}
-			        <li><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Page {{ articles_page.number - 1 }}</a></li>
-			    {% endif %}
-				<li class="navbar-text">{{ articles_page.number }} / {{ articles_paginator.num_pages }}</li>
-			    {% if articles_page.has_next() %}
-			        <li><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Page {{ articles_page.number + 1 }} &rarr;</a></li>
-			    {% endif %}
+				{% if articles_page.has_previous() %}
+					<li><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Page {{ articles_page.number - 1 }}</a></li>
+				{% endif %}
+					<li class="navbar-text">{{ articles_page.number }} / {{ articles_paginator.num_pages }}</li>
+				{% if articles_page.has_next() %}
+					<li><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Page {{ articles_page.number + 1 }} &rarr;</a></li>
+				{% endif %}
 			</ul>
 			{% endif %}
-		</div><!--.navbar-collapse-->
-	</div><!--.container-->
-</div><!--.navbar-->
+		</div>{# .navbar-collapse #}
+	</div>{# .container #}
+</div>{# .navbar #}
 <div class="container">
-    {% block content %}
-    {% endblock %}
-	</div>
-	<footer><div class="container">
+	{% block content %}
+	{% endblock %}
+</div>
+<footer>
+	<div class="container">
 		&copy; Usman Malik. Some
 		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB">
 			Rights
 		</a> Reserved.
 		<div class="pull-right">
-            Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-            which takes great advantage of <a href="http://python.org">Python</a>.
+			Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+			which takes great advantage of <a href="http://python.org">Python</a>.
 		</div>
-    </div></footer>
-
+	</div>
+</footer>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
