@@ -12,7 +12,8 @@ DEFAULT_CATEGORY = 'writings'
 DEFAULT_DATE = 'fs'
 DEFAULT_DATE_FORMAT = '%d %b %Y'
 DEFAULT_LANG = 'en'
-DEFAULT_PAGINATION = 1
+DEFAULT_ORPHANS = 49
+DEFAULT_PAGINATION = 50
 
 DELETE_OUTPUT_DIRECTORY = True
 
@@ -35,10 +36,10 @@ TIMEZONE = 'Europe/London'
 
 WITH_FUTURE_DATES = False
 
-PYGMENTS_RST_OPTIONS = {
-    'linenos': 'table',
+# PYGMENTS_RST_OPTIONS = {
+    # 'linenos': 'table',
     # 'nobackground': True,
-}
+# }
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

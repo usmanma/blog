@@ -11,8 +11,8 @@ env.deploy_path = 'output'
 DEPLOY_PATH = env.deploy_path
 
 # Remote server configuration
-production = 'user@webhost.example.com:22'
-dest_path = '/path/to/webroot'
+production = 'wf'
+dest_path = '~/webapps/asterias'
 
 # Rackspace Cloud Files configuration settings
 env.cloudfiles_username = 'my_rackspace_username'
@@ -55,6 +55,7 @@ def cf_upload():
 
 @hosts(production)
 def publish():
+    clean()
     local('pelican {content_path} -o {deploy_path} -s {publish_config}'.format(**env))
     project.rsync_project(
         remote_dir=dest_path,
