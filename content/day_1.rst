@@ -88,4 +88,4 @@ Let's try to complete todays challenge for tomorrow now.
 .. _pip: https://pypi.python.org/pypi/pip
 .. _virtualenv: http://www.virtualenv.org/en/latest/
 .. _question: http://stackoverflow.com/questions/18738238/salt-multiple-requirement-files-to-virtualenv
-.. _github: https://github.com/usmanma/cookiecutter-django
+.. _github: https://github.com/usmanma/cc-django-salted
