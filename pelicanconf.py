@@ -25,7 +25,7 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 
 PLUGIN_PATH = 'pelican_plugins'
-PLUGINS = ['assets','bootstrap_icons']
+PLUGINS = ['assets','bootstrap-icons']
 
 SUMMARY_MAX_LENGTH = None
 

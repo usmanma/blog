@@ -1,7 +1,7 @@
 Technology Stack
 ################
 
-:date: 2013-10-18 00:01
+:date: 2013-10-18
 
 This blog has finally gotten off the ground, so for the first entry, I thought I would
 list the technology being used by it (more for personal memory reasons).

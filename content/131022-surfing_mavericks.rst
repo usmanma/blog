@@ -12,3 +12,18 @@ to resist. As a result I spent most of the day backing up, formatting and fresh
 installing it.
 
 .. _Mavericks: http://www.apple.com/osx/
+
+Setup
+=====
+
+First thing to do is download Mavericks from the App Store.
+
+Then simply install it.
+
+Some tips that might be useful:
+
+Disable Dashboard
+    To disable the dashboard, type this in terminal::
+        defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
+
+
